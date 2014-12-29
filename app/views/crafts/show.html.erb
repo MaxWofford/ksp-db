@@ -1,0 +1,12 @@
+<p>
+  <strong>Name:</strong>
+  <%= @craft.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @craft.description %>
+</p>
+
+<%= link_to 'Edit', edit_craft_path(@craft) %> |
+<%= link_to 'Back', crafts_path %>

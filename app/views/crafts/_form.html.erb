@@ -1,0 +1,33 @@
+<% unless @craft.craft_file %>
+<!-- <div id="dropzone" onclick="">
+<span>Upload files!</span>
+</div> -->
+<input type="file" onchange="fileChange();" id="fileForUpload" accept=".craft">
+<% end %>
+
+<%= form_for(@craft) do |f| %>
+<% if @craft.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@craft.errors.count, "error") %> prohibited this craft from being saved:</h2>
+  <ul>
+    <% @craft.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+<div class="field">
+  <%= f.label :name %><br>
+  <%= f.text_field :name %>
+</div>
+<div class="field">
+  <%= f.label :description %><br>
+  <%= f.text_area :description %>
+</div>
+<div class="field">
+  <%= f.hidden_field :craft_file %>
+</div>
+<div class="actions">
+  <%= f.submit %>
+</div>
+<% end %>
