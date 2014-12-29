@@ -11,7 +11,7 @@ function fileChange(){
 	    reader.readAsText(file, "UTF-8");
 	    reader.onload = function (evt) {
 	        document.getElementById("notice").innerText = 'Your file has been proccessed';
-	    	console.log('Your file has been proccessed')
+	    	console.log('Your file has been proccessed');
 	    	// Set the hidden input equal to the file's content
 	        document.getElementById('craft_craft_file').value = reader.result;
 	        // Set the craft name input to the craft file without extension
@@ -21,4 +21,11 @@ function fileChange(){
 	        document.getElementById("notice").innerText = "error reading file";
 	    }
 	}
+}
+
+function saveCraft(craftName,craftFile) {
+	var fileName = craftName + '.craft';
+	console.log('now downloading' + fileName);
+	var blob = new Blob([craftFile], {type: "text/plain;charset=utf-8"});
+	saveAs(blob, fileName);
 }
