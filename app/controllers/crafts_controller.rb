@@ -40,8 +40,10 @@ class CraftsController < ApplicationController
   # PATCH/PUT /crafts/1
   # PATCH/PUT /crafts/1.json
   def update
+    # Update our tags first
+    @craft.tag_list.add(params[:craft][:tag_list], parse: true)
     respond_to do |format|
-      if @craft.update(craft_params)
+      if @craft.update(craft_params.except(:tag_list))
         format.html { redirect_to @craft, notice: 'Craft was successfully updated.' }
         format.json { render :show, status: :ok, location: @craft }
       else
@@ -69,6 +71,6 @@ class CraftsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def craft_params
-      params.require(:craft).permit(:name, :description, :craft_file)
+      params.require(:craft).permit(:name, :description, :craft_file, :tag_list)
     end
 end

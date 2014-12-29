@@ -7,6 +7,12 @@
   <strong>Description:</strong>
   <%= @craft.description %>
 </p>
+<%= form_for(@craft) do |f| %>
+  <%= f.text_field :tag_list, placeholder: 'tags' %>
+<% end %>
+<% @craft.tags.each do |tag| %>
+  <p><%= tag.name %></p>
+<% end %>
 
 <%= link_to 'Edit', edit_craft_path(@craft) %> |
 <%= link_to 'Back', crafts_path %>
