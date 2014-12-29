@@ -29,6 +29,8 @@ gem 'aws-sdk'
 # acts-as-taggable-on for user-curated tagging
 gem 'acts-as-taggable-on', '~> 3.4'
 
+gem 'heroku'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -42,6 +44,7 @@ gem 'acts-as-taggable-on', '~> 3.4'
 # gem 'debugger', group: [:development, :test]
 
 group :production do
+  # Heroku's database of choice
   gem 'pg'
 end
 
