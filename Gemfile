@@ -41,6 +41,10 @@ gem 'acts-as-taggable-on', '~> 3.4'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+group :production do
+  gem 'pg'
+end
+
 group :development do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
