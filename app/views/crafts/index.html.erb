@@ -15,7 +15,7 @@
       <tr>
         <td><%= craft.name %></td>
         <td><%= craft.description %></td>
-        <td><%= craft.craft_file %></td>
+        <td><a onclick=<%= "downloadCraft(\"#{craft.id}\")" %>>download</a></td>
         <td><%= link_to 'Show', craft %></td>
         <td><%= link_to 'Edit', edit_craft_path(craft) %></td>
         <td><%= link_to 'Destroy', craft, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -23,9 +23,20 @@ function fileChange(){
 	}
 }
 
-function saveCraft(craftName,craftFile) {
-	var fileName = craftName + '.craft';
-	console.log('now downloading' + fileName);
-	var blob = new Blob([craftFile], {type: "text/plain;charset=utf-8"});
-	saveAs(blob, fileName);
+function downloadCraft(craftId) {
+	var promise = $.get(window.location.origin + '/crafts/' + craftId + '.json', function( data ) {
+  		console.log( data );
+  		return data;
+	});
+	promise.done(function(data){
+		console.log('promise is done, returned: ' + data.name)
+		var fileName = data.name + '.craft';
+		console.log('now downloading ' + fileName);
+		var blob = new Blob([data.craft_file], {type: "text/plain;charset=utf-8"});
+		saveAs(blob, fileName);
+	})
+	promise.fail(function(data){
+		console.warn('something went wrong: ' + data);
+	})
 }
+

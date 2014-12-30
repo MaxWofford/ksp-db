@@ -14,7 +14,7 @@
   <p><%= tag.name %></p>
 <% end %>
 
-<a onclick=<%= "saveCraft(\"#{@craft.name}\",\"#{@craft.craft_file}\")" %>>download</a>
+<a onclick=<%= "downloadCraft(\"#{@craft.id}\")" %>>download</a>
 
 <%= link_to 'Edit', edit_craft_path(@craft) %> |
 <%= link_to 'Back', crafts_path %>
