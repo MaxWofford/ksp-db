@@ -42,6 +42,11 @@ gem 'acts-as-taggable-on', '~> 3.4'
 # Heroku's database of choice
 gem 'pg'
 
+group :production do
+  # For logging on Heroku
+  gem 'rails_12factor'
+end
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', '~> 0.4.0'
